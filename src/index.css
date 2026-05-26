@@ -1,1 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Chewy&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+
 @import "tailwindcss";
+
+@theme {
+    /* custom fonts */
+    --font-chewy: "Chewy", system-ui;
+    --font-mulish: "Mulish", sans-serif;
+
+    /* custom breakpoint */
+    --breakpoint-xs: 450px;
+}
+
+@layer base {
+    body {
+        @apply font-mulish bg-yellow-100;
+    }
+}

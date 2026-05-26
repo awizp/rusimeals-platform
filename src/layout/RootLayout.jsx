@@ -1,12 +1,13 @@
 import { Outlet } from "react-router";
 
-import { Navbar, ScrollToTop } from "../components";
+import { Hero, Navbar, ScrollToTop } from "../components";
 
 const RootLayout = () => {
     return (
         <div>
             <ScrollToTop />
             <Navbar />
+            <Hero />
             <Outlet />
         </div>
     );

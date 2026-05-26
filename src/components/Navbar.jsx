@@ -1,6 +1,6 @@
 const Navbar = () => {
     return (
-        <nav className="w-full py-5 px-3 md:px-0 bg-yellow-200 shadow">
+        <nav className="w-full py-5 px-3 md:px-0 bg-amber-300 shadow">
             <div className="container mx-auto w-full flex justify-between items-center gap-3">
 
                 <div className="w-fit overflow-hidden h-12">
