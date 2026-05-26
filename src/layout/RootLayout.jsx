@@ -1,14 +1,23 @@
-import { Outlet } from "react-router";
+import { Outlet, useLocation, matchPath } from "react-router";
 
-import { Hero, Navbar, ScrollToTop } from "../components";
+import { Categories, Hero, Navbar, ScrollToTop } from "../components";
+import Footer from "../components/Footer";
 
 const RootLayout = () => {
+
+    const { pathname } = useLocation();
+    const searchPath = matchPath('/search/:search', pathname);
+    const categoryPath = matchPath('/category/:name', pathname);
+    const mealPath = matchPath('/meal/:id', pathname);
+
     return (
         <div>
             <ScrollToTop />
             <Navbar />
-            <Hero />
+            {!searchPath && !categoryPath && !mealPath && <Hero />}
+            {!searchPath && !categoryPath && !mealPath && <Categories />}
             <Outlet />
+            <Footer />
         </div>
     );
 };

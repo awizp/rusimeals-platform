@@ -1,10 +1,17 @@
 import { useContext } from 'react';
 
 import { MealsContext } from '../context/MealsContext';
+import { useNavigate } from 'react-router';
 
 const Hero = () => {
 
-    const { randomMeal } = useContext(MealsContext);
+    const { randomMeal, handleLookupMeal } = useContext(MealsContext);
+    const navigate = useNavigate();
+
+    const handleRecipeLookup = (mealId) => {
+        handleLookupMeal(mealId);
+        navigate(`/meal/${mealId}`);
+    };
 
     return (
         <section className='w-full px-3 py-5'>
@@ -17,9 +24,14 @@ const Hero = () => {
                         {
                             randomMeal && (
                                 <>
-                                    <p className='font-bold'>{randomMeal.strCategory} | {randomMeal.strArea}</p>
+                                    <p className='font-bold'>
+                                        {randomMeal.strCategory} | {randomMeal.strArea ? randomMeal.strArea : randomMeal.strCountry}
+                                    </p>
                                     <h2 className='text-5xl font-chewy'>{randomMeal.strMeal}</h2>
-                                    <p className='font-semibold text-gray-700'>{randomMeal.strInstructions.slice(0, 250)}...</p>
+                                    <div className='space-y-2 text-sm text-gray-700'>
+                                        <h3 className='font-chewy'>Instructions</h3>
+                                        <p className='font-semibold text-gray-700'>{randomMeal.strInstructions.slice(0, 250)}...</p>
+                                    </div>
                                     {
                                         randomMeal.strTags && (
                                             <div className='flex items-center gap-3 flex-wrap'>
@@ -30,7 +42,9 @@ const Hero = () => {
                                         )
                                     }
                                     <div className='flex gap-3 mt-10 flex-wrap'>
-                                        <button className='w-full sm:w-fit bg-zinc-950 hover:bg-black font-semibold hover:shadow hover:-translate-y-0.5 transition duration-300 cursor-pointer px-3 py-2 rounded-full flex gap-1 items-center justify-center text-white'>
+                                        <button
+                                            onClick={() => handleRecipeLookup(randomMeal.idMeal)}
+                                            className='w-full sm:w-fit bg-zinc-950 hover:bg-black font-semibold hover:shadow hover:-translate-y-0.5 transition duration-300 cursor-pointer px-3 py-2 rounded-full flex gap-1 items-center justify-center text-white'>
                                             View <ion-icon name="information-circle"></ion-icon>
                                         </button>
                                         <a
@@ -60,8 +74,8 @@ const Hero = () => {
 
                     {/* overlay divs */}
                     <div className='absolute top-0 left-0 backdrop-blur-xs bg-black opacity-0 w-full h-full -z-10'></div>
-                    <div className='absolute top-0 left-0 bg-linear-to-b from-yellow-300 to-white opacity-80 w-full h-full -z-10'></div>
-                    <div className='absolute top-0 left-0 bg-linear-to-r from-yellow-300 to-white opacity-85 w-full h-full -z-10'></div>
+                    <div className='absolute top-0 left-0 bg-linear-to-b from-amber-300 to-white opacity-80 w-full h-full -z-10'></div>
+                    <div className='absolute top-0 left-0 bg-linear-to-r from-amber-300 to-white opacity-85 w-full h-full -z-10'></div>
 
                 </div>
 

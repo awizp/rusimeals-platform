@@ -4,9 +4,9 @@ import { useNavigate, useParams } from 'react-router';
 import MealsCard from './MealsCard';
 import { dublicateCheck } from '../utils/duplicateCheck';
 
-const MealsList = () => {
+const SearchedList = () => {
 
-    const { meals } = useContext(MealsContext);
+    const { searchedMeals: meals } = useContext(MealsContext);
     const [isCountryOpen, setIsCountryOpen] = useState(false);
     const [limit, setLimit] = useState(12);
     const [countryData, setCountryData] = useState("");
@@ -65,7 +65,7 @@ const MealsList = () => {
                     </button>
 
                     <div className='font-chewy flex flex-col xs:flex-row justify-between items-center gap-5 relative z-20'>
-                        <h3 className='text-2xl'>Meals for <span className='underline'>{params.name}</span></h3>
+                        <h3 className='text-2xl'>Search results for <span className='underline'>{params.search}</span></h3>
 
                         <div className="group relative">
                             <button className="text-lg cursor-pointer hover:text-zinc-500 flex items-center gap-1 transition-colors duration-300  outline-none"
@@ -126,4 +126,4 @@ const MealsList = () => {
     );
 };
 
-export default MealsList;
+export default SearchedList;
