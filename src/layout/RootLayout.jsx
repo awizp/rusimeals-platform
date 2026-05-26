@@ -5,8 +5,8 @@ import { Navbar, ScrollToTop } from "../components";
 const RootLayout = () => {
     return (
         <div>
-            <Navbar />
             <ScrollToTop />
+            <Navbar />
             <Outlet />
         </div>
     );

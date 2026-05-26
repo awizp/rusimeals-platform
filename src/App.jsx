@@ -1,7 +1,7 @@
 import React from 'react';
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router';
 import RootLayout from './layout/RootLayout';
-import { MealsDetails, PageNotFound } from './components';
+import { MealsDetails, MealsList, PageNotFound } from './components';
 
 const App = () => {
 
@@ -9,6 +9,7 @@ const App = () => {
     createRoutesFromElements(
       <>
         <Route path="/" element={<RootLayout />}>
+          <Route path="search" element={<MealsList />} />
           <Route path="meal/:id" element={<MealsDetails />} />
         </Route>
 
