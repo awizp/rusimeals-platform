@@ -44,12 +44,12 @@ const Hero = () => {
                                     <div className='flex gap-3 mt-10 flex-wrap'>
                                         <button
                                             onClick={() => handleRecipeLookup(randomMeal.idMeal)}
-                                            className='w-full sm:w-fit bg-zinc-950 hover:bg-black font-semibold hover:shadow hover:-translate-y-0.5 transition duration-300 cursor-pointer px-3 py-2 rounded-full flex gap-1 items-center justify-center text-white'>
+                                            className='w-full sm:w-fit bg-zinc-950 font-chewy text-lg hover:bg-black font-semibold hover:shadow hover:-translate-y-0.5 transition duration-300 cursor-pointer px-3 py-2 rounded-full flex gap-1 items-center justify-center text-white'>
                                             View <ion-icon name="information-circle"></ion-icon>
                                         </button>
                                         <a
                                             href={randomMeal.strSource}
-                                            target="_blank" className='w-full sm:w-fit border bg-amber-300 border-zinc-950 hover:border-black font-semibold hover:shadow hover:-translate-y-0.5 transition duration-300 cursor-pointer px-3 py-2  rounded-full flex gap-1 items-center text-black justify-center'>
+                                            target="_blank" className='w-full font-chewy text-lg sm:w-fit border bg-amber-300 border-zinc-950 hover:border-black font-semibold hover:shadow hover:-translate-y-0.5 transition duration-300 cursor-pointer px-3 py-2  rounded-full flex gap-1 items-center text-black justify-center'>
                                             Source
                                         </a>
                                     </div>
