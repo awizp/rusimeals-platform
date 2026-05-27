@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 import { MealsContext } from '../context/MealsContext';
-import { useNavigate } from 'react-router';
+import { NavLink, useNavigate } from 'react-router';
 
 const Navbar = () => {
 
@@ -21,9 +21,9 @@ const Navbar = () => {
         <nav className="w-full py-5 px-3 md:px-0 bg-amber-300 shadow">
             <div className="container mx-auto w-full flex justify-between items-center gap-3">
 
-                <div className="w-fit overflow-hidden h-12">
+                <NavLink to='/' className="w-fit overflow-hidden h-12">
                     <img src="/logo.png" alt="RusiMeals logo" className="w-full h-full object-cover" />
-                </div>
+                </NavLink>
 
                 <form className="w-fit" onSubmit={(e) => handleSubmit(e)}>
                     <input

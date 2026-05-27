@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router";
+import { useLocation, useNavigate, useParams } from "react-router";
 import { MealsContext } from "../context/MealsContext";
 
 const MealsDetails = () => {
@@ -7,17 +7,16 @@ const MealsDetails = () => {
     const { mealData, handleLookupMeal } = useContext(MealsContext);
     const params = useParams();
     const navigate = useNavigate();
+    const { pathname } = useLocation();
 
     useEffect(() => {
-        const handleSpecificMeal = () => {
-            handleLookupMeal(params.id);
-        };
-    }, [params.id]);
+        handleLookupMeal(params.id);
+    }, [params.id, pathname]);
 
     return (
         <>
             {
-                !mealData ? (
+                mealData.idMeal && mealData.idMeal !== params.id ? (
                     <main className='w-full py-25 px-3'>
                         <div className='w-full container mx-auto text-center space-y-10'>
 
