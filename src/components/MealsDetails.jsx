@@ -1,22 +1,44 @@
 import { useContext, useEffect, useState } from "react";
-import { useLocation, useNavigate, useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { MealsContext } from "../context/MealsContext";
 
 const MealsDetails = () => {
 
     const { mealData, handleLookupMeal } = useContext(MealsContext);
+    const [isMeal, setIsMeal] = useState(false);
     const params = useParams();
     const navigate = useNavigate();
-    const { pathname } = useLocation();
 
     useEffect(() => {
-        handleLookupMeal(params.id);
-    }, [params.id, pathname]);
+        const getMealItem = () => {
+            const regex = /^[0-9]*$/;
+
+            if (regex.test(params.id)) {
+                handleLookupMeal(params.id);
+            } else {
+                setIsMeal(false);
+            }
+        };
+
+        getMealItem();
+    }, [params.id]);
+
+    useEffect(() => {
+        const isMealItemAvailable = () => {
+            if (!mealData) {
+                setIsMeal(false);
+            } else {
+                setIsMeal(true);
+            }
+        };
+
+        isMealItemAvailable();
+    }, [mealData]);
 
     return (
         <>
             {
-                mealData.idMeal && mealData.idMeal !== params.id ? (
+                !isMeal && !mealData ? (
                     <main className='w-full py-25 px-3'>
                         <div className='w-full container mx-auto text-center space-y-10'>
 

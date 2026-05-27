@@ -15,7 +15,7 @@ const MealsProvider = ({ children }) => {
     const [categories, setCategories] = useState(null);
     const [searchedMeals, setSearchedMeals] = useState([]);
     const [meals, setMeals] = useState([]);
-    const [mealData, setMealData] = useState({});
+    const [mealData, setMealData] = useState(null);
 
     useEffect(() => {
         const getMealData = async () => {

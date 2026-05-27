@@ -49,7 +49,7 @@ const MealsList = () => {
             <main className='w-full py-25 px-3'>
                 <div className='w-full container mx-auto text-center space-y-10'>
 
-                    <p className='font-chewy text-2xl'>No meals related {params.search} found!</p>
+                    <p className='font-chewy text-2xl'>No meals related {params.name} found!</p>
 
                     <button className='mx-auto bg-yellow-50/20 border-2 border-amber-600 text-amber-600 px-3 py-1 rounded-full cursor-pointer hover:shadow hover:bg-yellow-400/20 font-semibold flex gap-1 items-center'
                         onClick={() => navigate("/")}
