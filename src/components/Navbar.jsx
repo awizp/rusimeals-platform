@@ -12,7 +12,7 @@ const Navbar = () => {
         e.preventDefault();
 
         if (search === "") return;
-        handleSearchChange(search);
+        handleSearchChange(search.toLocaleLowerCase());
         navigate(`/search/${search}`);
         setSearch("");
     };
