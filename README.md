@@ -10,6 +10,6 @@
    4. Ionic icons
    5. MealDb API
 
-**🔗 demo:** [RusiMeals](https://rusimeals-web.vercel.app/)
+**🔗 demo:** [RusiMeals](https://rusimeals-platform.vercel.app/)
 
    ![Main UI](https://github.com/awizp/rusimeals-platform/blob/main/public/ui.png)
