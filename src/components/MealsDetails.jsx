@@ -99,13 +99,16 @@ const MealsDetails = () => {
 
                                 <div className="space-y-3 font-semibold">
                                     {
-                                        mealData.strInstructions.includes("\r\n") ?
-                                            mealData.strInstructions.split("\r\n").map((word, idx) => (
-                                                <p key={idx}>{word}</p>
-                                            )) :
-                                            mealData.strInstructions.split(". ").map((word, idx) => (
-                                                <p key={idx}>{word}</p>
-                                            ))
+                                        mealData.strInstructions ?
+                                            (
+                                                mealData.strInstructions.includes("\r\n") ?
+                                                    mealData.strInstructions.split("\r\n").map((word, idx) => (
+                                                        <p key={idx}>{word}</p>
+                                                    )) :
+                                                    mealData.strInstructions.split(". ").map((word, idx) => (
+                                                        <p key={idx}>{word}</p>
+                                                    ))
+                                            ) : "Loading..."
                                     }
                                 </div>
                             </div>

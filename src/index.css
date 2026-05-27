@@ -12,6 +12,10 @@
 }
 
 @layer base {
+    html {
+        @apply scroll-smooth;
+    }
+
     body {
         @apply font-mulish bg-yellow-100;
     }

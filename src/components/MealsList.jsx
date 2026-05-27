@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { MealsContext } from '../context/MealsContext';
 import { useNavigate, useParams } from 'react-router';
 import MealsCard from './MealsCard';
@@ -6,12 +6,16 @@ import { dublicateCheck } from '../utils/duplicateCheck';
 
 const MealsList = () => {
 
-    const { meals } = useContext(MealsContext);
+    const { meals, handleCategoryChange } = useContext(MealsContext);
     const [isCountryOpen, setIsCountryOpen] = useState(false);
     const [limit, setLimit] = useState(12);
     const [countryData, setCountryData] = useState("");
     const params = useParams();
     const navigate = useNavigate();
+
+    useEffect(() => {
+        handleCategoryChange(params.name);
+    }, [params.name]);
 
     const filtered = () => {
         if (meals) {
